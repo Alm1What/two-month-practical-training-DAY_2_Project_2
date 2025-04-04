@@ -2,7 +2,7 @@ package org.example.day_2_practice_project_two.entity;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "borrow_record")
@@ -14,8 +14,11 @@ public class BorrowRecord {
 
     private Long bookId;
     private String user_name;
-    private LocalDateTime borrow_date;
-    private LocalDateTime return_date;
+    private LocalDate borrow_date;
+    private LocalDate return_date;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "book_id")
+    private Book book;
 
 }

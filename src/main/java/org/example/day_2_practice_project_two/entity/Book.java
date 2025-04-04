@@ -13,4 +13,8 @@ public class Book {
     private String title;
     private Long authorId;
     private boolean isBorrowed;
+
+    @ManyToOne(fetch = FetchType.LAZY) // тут може бути проблемка що не всі дані будуть відображатися (але не факт не пам'ятаю що саме)
+    @JoinColumn(name = "author_id")
+    private Author author;
 }
