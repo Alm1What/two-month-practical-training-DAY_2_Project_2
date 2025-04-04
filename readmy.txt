@@ -1,0 +1,24 @@
+2. Бібліотека (книги + автори + позичання)
+Суть: Система обліку книг у бібліотеці з можливістю позичання.
+
+Моделі:
+
+Author (id, name, country).
+
+Book (id, title, author_id — Many-to-One, isBorrowed).
+
+BorrowRecord (id, book_id, user_name, borrowDate, returnDate).
+
+Ендпоінти:
+
+CRUD для авторів та книг.
+
+POST /books/{bookId}/borrow — позичити книгу (змінити isBorrowed на true).
+
+GET /books/available — отримати всі доступні книги.
+
+Складність:
+
+Транзакції (@Transactional) при позичанні.
+
+Пошук книг за автором (GET /books?author=...).
