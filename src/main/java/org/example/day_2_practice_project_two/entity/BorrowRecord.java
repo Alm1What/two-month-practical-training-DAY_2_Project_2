@@ -12,10 +12,9 @@ public class BorrowRecord {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long bookId;
-    private String user_name;
-    private LocalDate borrow_date;
-    private LocalDate return_date;
+    private String userName;
+    private LocalDate borrowDate;
+    private LocalDate returnDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "book_id")
@@ -24,12 +23,11 @@ public class BorrowRecord {
     public BorrowRecord() {
     }
 
-    public BorrowRecord(Long id, Long bookId, String user_name, LocalDate borrow_date, LocalDate return_date, Book book) {
+    public BorrowRecord(Long id, String userName, LocalDate borrowDate, LocalDate returnDate, Book book) {
         this.id = id;
-        this.bookId = bookId;
-        this.user_name = user_name;
-        this.borrow_date = borrow_date;
-        this.return_date = return_date;
+        this.userName = userName;
+        this.borrowDate = borrowDate;
+        this.returnDate = returnDate;
         this.book = book;
     }
 
@@ -41,36 +39,28 @@ public class BorrowRecord {
         this.id = id;
     }
 
-    public Long getBookId() {
-        return bookId;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setBookId(Long bookId) {
-        this.bookId = bookId;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getUser_name() {
-        return user_name;
+    public LocalDate getBorrowDate() {
+        return borrowDate;
     }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
+    public void setBorrowDate(LocalDate borrowDate) {
+        this.borrowDate = borrowDate;
     }
 
-    public LocalDate getBorrow_date() {
-        return borrow_date;
+    public LocalDate getReturnDate() {
+        return returnDate;
     }
 
-    public void setBorrow_date(LocalDate borrow_date) {
-        this.borrow_date = borrow_date;
-    }
-
-    public LocalDate getReturn_date() {
-        return return_date;
-    }
-
-    public void setReturn_date(LocalDate return_date) {
-        this.return_date = return_date;
+    public void setReturnDate(LocalDate returnDate) {
+        this.returnDate = returnDate;
     }
 
     public Book getBook() {

@@ -7,7 +7,6 @@ public class BorrowRecordDTO {
     private Long id;
     private Long bookId;
     private String bookTitle;
-
     private String userName;
     private LocalDate borrowDate;
     private LocalDate returnDate;

@@ -11,8 +11,7 @@ public class Book {
     private Long id;
 
     private String title;
-    private Long authorId;
-    private boolean isBorrowed;
+    private boolean isBorrowed = false;
 
     @ManyToOne(fetch = FetchType.LAZY) // тут може бути проблемка що не всі дані будуть відображатися (але не факт не пам'ятаю що саме)
     @JoinColumn(name = "author_id")
@@ -21,10 +20,10 @@ public class Book {
     public Book() {
     }
 
-    public Book(Long id, String title, Long authorId, boolean isBorrowed, Author author) {
+    public Book(Long id, String title, boolean isBorrowed, Author author) {
         this.id = id;
         this.title = title;
-        this.authorId = authorId;
+
         this.isBorrowed = isBorrowed;
         this.author = author;
     }
@@ -43,14 +42,6 @@ public class Book {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public Long getAuthorId() {
-        return authorId;
-    }
-
-    public void setAuthorId(Long authorId) {
-        this.authorId = authorId;
     }
 
     public boolean isBorrowed() {
