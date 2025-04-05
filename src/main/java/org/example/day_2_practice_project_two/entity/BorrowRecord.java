@@ -1,5 +1,6 @@
 package org.example.day_2_practice_project_two.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -13,7 +14,9 @@ public class BorrowRecord {
     private Long id;
 
     private String userName;
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate borrowDate;
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate returnDate;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -4,4 +4,5 @@ import org.example.day_2_practice_project_two.entity.BorrowRecord;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BorrowRecordRepository extends JpaRepository<BorrowRecord, Long> {
+    BorrowRecord findByUserName(String userName);
 }
